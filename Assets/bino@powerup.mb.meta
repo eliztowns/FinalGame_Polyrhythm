@@ -1,0 +1,137 @@
+fileFormatVersion: 1
+guid: c0f9f4dedf2b0824880fb03be3e4c790
+ModelImporter:
+  importerVersion: 7
+  meshes:
+    scaleFactor: 1
+    useFileUnits: 1
+    meshCompression: 0
+    generateColliders: 0
+    swapUVs: 0
+  tangentSpace:
+    normalImportMode: 0
+    tangentImportMode: 1
+    smoothingAngle: 60
+    splitTangents: 1
+  materials:
+    generation: 1
+  animations:
+    generation: 3
+    bakeAnimations: 0
+    animationCompression: 1
+    animationWrapMode: 0
+    splitAnimations: 1
+  nodeInfo:
+    //RootNode:
+    - 100000
+    - 400000
+    - 11100000
+    ikHandle5:
+    - 100002
+    - 400002
+    ikHandle4:
+    - 100004
+    - 400004
+    ikHandle3:
+    - 100006
+    - 400006
+    ikHandle2:
+    - 100008
+    - 400008
+    ikHandle1:
+    - 100010
+    - 400010
+    Rankle:
+    - 100012
+    - 400012
+    Rknee:
+    - 100014
+    - 400014
+    Rhip:
+    - 100016
+    - 400016
+    Lankle:
+    - 100018
+    - 400018
+    Lknee:
+    - 100020
+    - 400020
+    Lhip:
+    - 100022
+    - 400022
+    headball:
+    - 100024
+    - 400024
+    head 1:
+    - 100026
+    - 400026
+    Rwrist:
+    - 100028
+    - 400028
+    Relbow:
+    - 100030
+    - 400030
+    Rshoulder:
+    - 100032
+    - 400032
+    Lwrist:
+    - 100034
+    - 400034
+    Lelbow:
+    - 100036
+    - 400036
+    Lshoulder:
+    - 100038
+    - 400038
+    headarms:
+    - 100040
+    - 400040
+    headarmsspine 1:
+    - 100042
+    - 400042
+    headarmsspine:
+    - 100044
+    - 400044
+    skeloten:
+    - 100046
+    - 400046
+    head:
+    - 100048
+    - 400048
+    - 13700000
+    binohead:
+    - 100050
+    - 400050
+    leftarm:
+    - 100052
+    - 400052
+    - 13700002
+    rightarm:
+    - 100054
+    - 400054
+    - 13700004
+    rightleg:
+    - 100056
+    - 400056
+    - 13700006
+    leftleg:
+    - 100058
+    - 400058
+    - 13700008
+    torso:
+    - 100060
+    - 400060
+    - 13700010
+    Binobody:
+    - 100062
+    - 400062
+AssetImporter:
+  importerVersion: 1
+  fileIDToRecycleName:
+    4300000: torso
+    4300002: leftleg
+    4300004: rightleg
+    4300006: rightarm
+    4300008: leftarm
+    4300010: head
+    7400000: Take 001 //// bino@powerup
