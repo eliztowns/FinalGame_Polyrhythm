@@ -32,6 +32,10 @@ public class yellowPaint : MonoBehaviour {
 				//CATCH
 				combos.output_queue.Enqueue("catch");
 				Destroy(gameObject);
+				//make orbiter
+				print("go");
+				GameObject o = Resources.Load("yellowOrbiter")as GameObject;
+				o.transform.parent = thePlayer.transform;
 			}
 		}
 		else if((thePlayer.color == "yellow") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z -1) > 0) && (transform.position.z > 0)))
@@ -42,6 +46,10 @@ public class yellowPaint : MonoBehaviour {
 				//CATCH
 				combos.output_queue.Enqueue("catch");
 				Destroy(gameObject);
+				//make orbiter
+				print("go");
+				GameObject o = Resources.Load("yellowOrbiter")as GameObject;
+				o.transform.parent = thePlayer.transform;
 			}
 		}
 		else if((thePlayer.color == "yellow") && ((thePlayer.transform.position.z < 0) && (transform.position.z < 0)))
@@ -52,6 +60,10 @@ public class yellowPaint : MonoBehaviour {
 				//CATCH
 				combos.output_queue.Enqueue("catch");
 				Destroy(gameObject);
+				//make orbiter
+				print("go");
+				GameObject o = Resources.Load("yellowOrbiter")as GameObject;
+				o.transform.parent = thePlayer.transform;
 			}
 		}
 		
