@@ -30,6 +30,8 @@ public class blue_spawn : MonoBehaviour {
 				bp.transform.position = spawnPlace;
 			
 				bp.transform.parent = transform;
+				///bp.animation.Play("falling");
+				//bp.animation["falling"].wrapMode = WrapMode.Loop;
 			}
 			else if(x%3 == 0)
 			{
@@ -40,6 +42,8 @@ public class blue_spawn : MonoBehaviour {
 				bp.transform.position = spawnPlace;
 			
 				bp.transform.parent = transform;
+				//bp.animation.Play("falling");
+				//bp.animation["falling"].wrapMode = WrapMode.Loop;
 			}
 			else if(x%5 == 0)
 			{
@@ -50,6 +54,8 @@ public class blue_spawn : MonoBehaviour {
 				bp.transform.position = spawnPlace;
 			
 				bp.transform.parent = transform;
+				//bp.animation.Play("falling");
+				//bp.animation["falling"].wrapMode = WrapMode.Loop;
 			}
 		}
 		
