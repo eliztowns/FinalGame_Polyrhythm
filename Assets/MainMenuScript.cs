@@ -31,11 +31,11 @@ public class MainMenuScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown("r"))
+        if (Input.GetButtonDown("green"))
             selection = Min(selection + 1, 3);
-        if (Input.GetKeyDown("q"))
+        if (Input.GetButtonDown("red"))
             selection = Max(selection - 1, 0);
-        if (Input.GetKeyDown("space")){
+        if (Input.GetButtonDown("foot_pedal")){
             if(selection == 0)
                 StartButton();
             else if(selection == 1)
@@ -68,7 +68,7 @@ public class MainMenuScript : MonoBehaviour {
     }
     
     void StartButton() {
-        Application.LoadLevel("beth_scene_whaleshark"); 
+        Application.LoadLevel("beth_scene_tyranosaurus"); 
     }
     
     void OptionsButton() {
