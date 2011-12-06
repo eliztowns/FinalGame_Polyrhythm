@@ -33,18 +33,19 @@ public class player_class : MonoBehaviour {
 	//sliding around stuff
 	private bool is_tweening;
 	private float remaining_tween_z;
+	private static float lane_width = 0.20f;
 	
 	private void tweening(){
 		Vector3 trans_coords = transform.forward;
 		//we are moving right
 		if(remaining_tween_z > 0){
-			trans_coords.z = 0.15f * Time.deltaTime * 1.8f;
+			trans_coords.z = lane_width * Time.deltaTime * 1.8f;
 			if(trans_coords.z > remaining_tween_z)
 				trans_coords.z = remaining_tween_z;
 		}
 		//we are moving left
 		else{
-			trans_coords.z = -0.15f * Time.deltaTime * 1.8f;
+			trans_coords.z = -lane_width * Time.deltaTime * 1.8f;
 			if(trans_coords.z < remaining_tween_z)
 				trans_coords.z = remaining_tween_z;
 		}
@@ -63,11 +64,11 @@ public class player_class : MonoBehaviour {
 		
 		if(direction && lane < 2){
 			lane++;
-			remaining_tween_z += 0.15f;
+			remaining_tween_z += lane_width;
 		}
 		else if(!direction && lane > 0){
 			lane--;
-			remaining_tween_z -= 0.15f;
+			remaining_tween_z -= lane_width;
 		}
 		
 	}
