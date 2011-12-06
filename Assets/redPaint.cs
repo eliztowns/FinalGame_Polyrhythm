@@ -5,11 +5,13 @@ public class redPaint : MonoBehaviour {
 	
 	private player_class thePlayer;
 	public float dist = 0.01f;
+	private combo_master combos;
 
 	// Use this for initialization
 	void Start () {
 		GameObject temp = GameObject.Find("player_prefab");
 		thePlayer = temp.GetComponent<player_class>();
+		combos = temp.GetComponent<combo_master>();
 	}
 	
 	// Update is called once per frame
@@ -17,7 +19,7 @@ public class redPaint : MonoBehaviour {
 	
 		if(transform.position.y <= 0)
 		{
-			
+			combos.output_queue.Enqueue("drop");
 			//SPLATTER ANIMATION
 			Destroy(gameObject);
 			
@@ -29,7 +31,7 @@ public class redPaint : MonoBehaviour {
 			{
 
 				//CATCH
-
+				combos.output_queue.Enqueue("catch");
 				Destroy(gameObject);
 			}
 		}
@@ -38,6 +40,7 @@ public class redPaint : MonoBehaviour {
 			if(transform.position.x <= (thePlayer.transform.position.x + dist))
 			{
 				//CATCH
+				combos.output_queue.Enqueue("catch");
 				Destroy(gameObject);
 			}
 		}
@@ -46,6 +49,7 @@ public class redPaint : MonoBehaviour {
 			if(transform.position.x <= (thePlayer.transform.position.x + dist))
 			{
 				//CATCH
+				combos.output_queue.Enqueue("catch");
 				Destroy(gameObject);
 			}
 		}
