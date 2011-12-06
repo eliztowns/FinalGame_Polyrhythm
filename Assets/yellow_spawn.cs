@@ -35,7 +35,6 @@ public class yellow_spawn : MonoBehaviour {
 			
 				yp.transform.parent = transform;
 				
-				lane = 1;
 			}
 			else if(x%3 == 0)
 			{
@@ -47,7 +46,6 @@ public class yellow_spawn : MonoBehaviour {
 			
 				yp.transform.parent = transform;
 				
-				lane = 2;
 			}
 			else if(x%5 == 0)
 			{
@@ -59,7 +57,6 @@ public class yellow_spawn : MonoBehaviour {
 			
 				yp.transform.parent = transform;
 				
-				lane = 3;
 			}
 		}
 
