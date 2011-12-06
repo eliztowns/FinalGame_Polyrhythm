@@ -17,10 +17,14 @@ public class player_class : MonoBehaviour {
 	public string color;
 	public float cooldown;
 	private CharacterController controller;
-	public List <string> feet;
-	public GameObject player;
-	public GameObject bino;
-	public float reflected_bps;
+	private List <string> feet;
+	private GameObject player;
+	private GameObject bino;
+	private float reflected_bps;
+	
+	//game win/lose conditions
+	public int score;
+	public int penalties;
 	
 	private GUIScript gui_instance;
 	
@@ -103,11 +107,13 @@ public class player_class : MonoBehaviour {
 	}
 	
 	public void animate_catch(){
+		score += 100;
 		bino.animation.CrossFade("jumping");
 	}
 	
 	public void animate_drop(){
 		Debug.Log("dropping");
+		penalties--;
 	}
 	
 	public void receive_input(){
@@ -167,11 +173,13 @@ public class player_class : MonoBehaviour {
 		feet = new List<string>();
 		player = GameObject.Find("player_prefab");
 		
+		//LOAD TEXTURES
 		red_tex = Resources.Load("red") as Texture;
 		blue_tex = Resources.Load("blue") as Texture;
 		white_tex = Resources.Load("white") as Texture;
 		yellow_tex = Resources.Load("yellow") as Texture;
 		
+		//DEAL WITH ANIMATIONS
 		bino = GameObject.Find("bino");
 		bino.animation.Stop();
 		bino.animation.Play("running");
@@ -184,6 +192,8 @@ public class player_class : MonoBehaviour {
 		bino.animation["jumping"].layer = 1;
 		
 		remaining_tween_z = 0;
+		score = 0;
+		penalties = 5;
 	}
 	
 	

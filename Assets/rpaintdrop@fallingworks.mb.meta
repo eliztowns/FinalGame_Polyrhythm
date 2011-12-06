@@ -1,5 +1,5 @@
 fileFormatVersion: 1
-guid: 769ee1852db912e4a81dbadf3fe77c71
+guid: 6415b6ccf26eae047ba78a33619031b6
 ModelImporter:
   importerVersion: 7
   meshes:
@@ -19,7 +19,7 @@ ModelImporter:
     generation: 3
     bakeAnimations: 0
     animationCompression: 1
-    animationWrapMode: 0
+    animationWrapMode: 2
     splitAnimations: 1
   nodeInfo:
     //RootNode:
@@ -32,4 +32,5 @@ AssetImporter:
   importerVersion: 1
   fileIDToRecycleName:
     4300000: pSphere1
-    7400000: Take 001 //// animation_fallingpaintdrop
+    7400000: Take 001 //// paintdrop@fallingworks
+    7400002: Take 001 //// rpaintdrop@fallingworks
