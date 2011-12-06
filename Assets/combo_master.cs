@@ -14,23 +14,11 @@ public class combo_master : MonoBehaviour {
 	private float combo_timer;
 	private float simul_timer;
 	private InputManager input;
+    private GameOptions the_options;
 	
-	
-	//ADVANCED COMBOS
-	private static string[] red_advanced = {"blue", "blue", "blue", "combo", "blue", "blue", "blue", "combo"};
-	private static string[] blue_advanced = {"yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow"};
-	private static string[] yellow_advanced = {"combo", "combo", "blue", "yellow", "combo"};
-	
-	//REGULAR COMBOS
-	private static string[] red_combo = {"blue", "combo", "blue", "combo", "blue", "combo"};
-	private static string[] blue_combo = {"yellow", "yellow", "yellow", "yellow", "yellow", "yellow"};
-	//private static string[] blue_combo = {"blue", "blue", "blue", "blue", "blue", "blue"};
-	private static string[] yellow_combo = {"combo", "combo", "combo", "combo"};
-	
-	//EASY COMBOS
-	private static string[] red_easy = {"blue", "yellow", "blue"};
-	private static string[] blue_easy = {"yellow", "yellow", "yellow"};
-	private static string[] yellow_easy = {"combo", "combo", "combo"};
+	private List<string> red_combo = new List<string>();
+	private List<string> blue_combo = new List<string>();
+	private List<string> yellow_combo = new List<string>();
 	
 	public static combo_master get{
 		get{
@@ -108,11 +96,11 @@ public class combo_master : MonoBehaviour {
 		int temp_count = temp.Count;
 		
 		//we have out updated list, now check for combinations
-		if(temp.Count >= 6){
+		if(temp.Count >= red_combo.Count){
 			//red
 			int offset = 0;
-			for(int i = 0; i< temp.Count-6; i++){
-				for(int x = i; x<i+6; x++){
+			for(int i = 0; i< temp.Count-red_combo.Count; i++){
+				for(int x = i; x<i+red_combo.Count; x++){
 					//check to see if we have a contiguous combo
 					if(temp[x].name == red_combo[offset])
 						offset++;
@@ -134,11 +122,11 @@ public class combo_master : MonoBehaviour {
 				}
 			}
 		}
-		if(temp.Count >= 6){
+		if(temp.Count >= blue_combo.Count){
 			//blue
 			int offset = 0;
-			for(int i = 0; i< temp.Count-6; i++){
-				for(int x = i; x<i+6; x++){
+			for(int i = 0; i< temp.Count-blue_combo.Count; i++){
+				for(int x = i; x<i+blue_combo.Count; x++){
 					//check to see if we have a contiguous combo
 					if(temp[x].name == blue_combo[offset])
 						offset++;
@@ -162,10 +150,10 @@ public class combo_master : MonoBehaviour {
 				
 		}
 		//yellow
-		if(temp.Count >= 3){
+		if(temp.Count >= yellow_combo.Count){
 			int offset = 0;
-			for(int i = 0; i< temp.Count-3; i++){
-				for(int x = i; x<i+2; x++){
+			for(int i = 0; i< temp.Count-yellow_combo.Count; i++){
+				for(int x = i; x<i+yellow_combo.Count; x++){
 					//check to see if we have a contiguous combo
 					if(temp[x].name == yellow_combo[offset])
 						offset++;
@@ -201,7 +189,30 @@ public class combo_master : MonoBehaviour {
 		simul_timer = 0.05f;
 		combo_timer = 7;
 		combo_count = 0;
-		
+        GameObject temp_Thing = GameObject.Find("GameOptions");
+        if(temp_Thing != null){
+            the_options = temp_Thing.GetComponent<GameOptions>();
+            red_combo = the_options.red_combo;
+            blue_combo = the_options.blue_combo;
+            yellow_combo = the_options.yellow_combo;
+        } else {
+            red_combo.Add("blue");
+            red_combo.Add("combo");
+            red_combo.Add("blue");
+            red_combo.Add("combo");
+            red_combo.Add("blue");
+            red_combo.Add("combo");
+            blue_combo.Add("yellow");
+            blue_combo.Add("yellow");
+            blue_combo.Add("yellow");
+            blue_combo.Add("yellow");
+            blue_combo.Add("yellow");
+            blue_combo.Add("yellow");
+            yellow_combo.Add("combo");     
+            yellow_combo.Add("combo");      
+            yellow_combo.Add("combo");      
+            yellow_combo.Add("combo");   
+        }
 	}
 	
 	// Update is called once per frame

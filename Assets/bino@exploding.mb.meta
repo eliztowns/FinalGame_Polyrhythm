@@ -37,6 +37,9 @@ ModelImporter:
     - 400004
     - 3300004
     - 2300004
+    group20:
+    - 100006
+    - 400006
     //RootNode:
     - 100008
     - 400008
@@ -69,3 +72,4 @@ AssetImporter:
     4300008: pasted__pasted__pasted__pSphere4
     4300010: polySurface2
     7400000: Take 001 //// bino@exploding
+    7400002: Take 001 //// binoexploding
