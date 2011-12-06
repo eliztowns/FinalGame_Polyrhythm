@@ -4,17 +4,18 @@ using System.Collections;
 public class Orbiters : MonoBehaviour {
 
     private float start_time;
-    public float time_per_loop=5;
-    public float top_radius=10;
-    public float bottom_radius=10;
-    public float height=10;
-    
+    public float time_per_loop;
+    public float top_radius;
+    public float bottom_radius;
+    public float height;
+    public float yoffset;
 	// Use this for initialization
 	void Start () {
 		time_per_loop = 5;
-		top_radius = 10;
-		bottom_radius = 10;
-		height = 10;
+		top_radius =1;
+		bottom_radius =1;
+		height = .1F;
+		yoffset=1.3F;
         start_time = Time.time;
         float time_val = (start_time - Time.time) % time_per_loop;
         float radian_val = (2 * Mathf.PI) * (time_val / time_per_loop);
@@ -26,8 +27,8 @@ public class Orbiters : MonoBehaviour {
         float time_val = (start_time - Time.time) % time_per_loop;
         float radian_val = (2 * Mathf.PI) * (time_val / time_per_loop);
         float actual_radius = Mathf.Sin(radian_val) * (top_radius - bottom_radius) + bottom_radius;
-		transform.position = new Vector3(actual_radius * Mathf.Cos(radian_val), 
-                                         actual_radius * Mathf.Sin(radian_val), 
-                                         height * Mathf.Sin(radian_val));
+		transform.localPosition = new Vector3(actual_radius * Mathf.Cos(radian_val), 
+                                         height * Mathf.Sin(radian_val)+yoffset,
+										actual_radius * Mathf.Sin(radian_val));
 	}
 }
