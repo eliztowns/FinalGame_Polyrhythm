@@ -3,8 +3,8 @@ using System.Collections;
 
 public class paint_physics : MonoBehaviour {
 	
-	public float p_x = -.2f;
-	public float p_y = -0.000001f;
+	public float p_x = -0.0143f;
+	public float p_y = -0.003f;
 	//public Vector3 startpos;
 
 	// Use this for initialization
