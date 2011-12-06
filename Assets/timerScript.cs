@@ -4,7 +4,7 @@ using System.Collections;
 public class timerScript : MonoBehaviour {
 	
 	public float game_time;
-	private float end_time = 20f;
+	private float end_time = 180f;
 	private float menu_time;
 	public int penalty_limit;
 	
