@@ -22,11 +22,14 @@ public class redPaint : MonoBehaviour {
 			Destroy(gameObject);
 			
 		}
+
 		else if((thePlayer.color == "red") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z - 1) < 0) && (transform.position.z == 0)))
 		{
 			if(transform.position.x <= (thePlayer.transform.position.x + dist))
 			{
+
 				//CATCH
+
 				Destroy(gameObject);
 			}
 		}
@@ -46,6 +49,7 @@ public class redPaint : MonoBehaviour {
 				Destroy(gameObject);
 			}
 		}
+
 		
 	}
 }
