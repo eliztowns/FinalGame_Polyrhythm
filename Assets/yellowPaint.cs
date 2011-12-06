@@ -22,6 +22,10 @@ public class yellowPaint : MonoBehaviour {
 			combos.output_queue.Enqueue("drop");
 			//SPLATTER ANIMATION
 			Destroy(gameObject);
+			//make orbiter
+			print("go");
+			GameObject o = Resources.Load("yellowOrbiter")as GameObject;
+			o.transform.parent = thePlayer.transform;
 			
 		}
 		else if((thePlayer.color == "yellow") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z - 1) < 0) && (transform.position.z == 0)))
