@@ -1,0 +1,14 @@
+easy
+    R: bbbcbbbc
+    Y: ccbyc
+    B: yyyyyyyy
+    
+medium
+    R: bcbcbc
+    Y: cccc
+    B: yyyyyy
+    
+hard
+    R: byb
+    Y: ccc
+    B: yyy

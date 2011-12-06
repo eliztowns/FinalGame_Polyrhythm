@@ -15,9 +15,9 @@ public class MainMenuScript : MonoBehaviour {
     
     private float gap;
     private float ratio;
-    public float icon_dim;
-    public float selection_dim;
-    public float selection_mod;
+    private float icon_dim;
+    private float selection_dim;
+    private float selection_mod;
     private int selection = 0;
     
 	// Use this for initialization
@@ -68,7 +68,7 @@ public class MainMenuScript : MonoBehaviour {
     }
     
     void StartButton() {
-        Application.LoadLevel("masterscene2whaleshark"); 
+        Application.LoadLevel("beth_scene_tyranosaurus"); 
     }
     
     void OptionsButton() {
