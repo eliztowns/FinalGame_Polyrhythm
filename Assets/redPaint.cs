@@ -3,12 +3,13 @@ using System.Collections;
 
 public class redPaint : MonoBehaviour {
 	
-	public player_class thePlayer;
+	private player_class thePlayer;
+	public float dist = 0.01f;
 
 	// Use this for initialization
 	void Start () {
-		//GameObject temp = GameObject.Find("player_prefab");
-		//thePlayer = temp.GetComponent<player_class>();
+		GameObject temp = GameObject.Find("player_prefab");
+		thePlayer = temp.GetComponent<player_class>();
 	}
 	
 	// Update is called once per frame
@@ -21,12 +22,30 @@ public class redPaint : MonoBehaviour {
 			Destroy(gameObject);
 			
 		}
-		
-		//if(thePlayer.color == "red" && )
-		//{
-			
-		//}
-
+		else if((thePlayer.color == "red") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z - 1) < 0) && (transform.position.z == 0)))
+		{
+			if(transform.position.x <= (thePlayer.transform.position.x + dist))
+			{
+				//CATCH
+				Destroy(gameObject);
+			}
+		}
+		else if((thePlayer.color == "red") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z -1) > 0) && (transform.position.z > 0)))
+		{
+			if(transform.position.x <= (thePlayer.transform.position.x + dist))
+			{
+				//CATCH
+				Destroy(gameObject);
+			}
+		}
+		else if((thePlayer.color == "red") && ((thePlayer.transform.position.z < 0) && (transform.position.z < 0)))
+		{
+			if(transform.position.x <= (thePlayer.transform.position.x + dist))
+			{
+				//CATCH
+				Destroy(gameObject);
+			}
+		}
 		
 	}
 }
