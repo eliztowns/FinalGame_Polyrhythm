@@ -99,8 +99,8 @@ public class combo_master : MonoBehaviour {
 		if(temp.Count >= red_combo.Count){
 			//red
 			int offset = 0;
-			for(int i = 0; i< temp.Count-6; i++){
-				for(int x = i; x<i+6; x++){
+			for(int i = 0; i< temp.Count-red_combo.Count; i++){
+				for(int x = i; x<i+red_combo.Count; x++){
 					//check to see if we have a contiguous combo
 					if(temp[x].name == red_combo[offset])
 						offset++;
@@ -125,8 +125,8 @@ public class combo_master : MonoBehaviour {
 		if(temp.Count >= blue_combo.Count){
 			//blue
 			int offset = 0;
-			for(int i = 0; i< temp.Count-6; i++){
-				for(int x = i; x<i+6; x++){
+			for(int i = 0; i< temp.Count-blue_combo.Count; i++){
+				for(int x = i; x<i+blue_combo.Count; x++){
 					//check to see if we have a contiguous combo
 					if(temp[x].name == blue_combo[offset])
 						offset++;
@@ -152,8 +152,8 @@ public class combo_master : MonoBehaviour {
 		//yellow
 		if(temp.Count >= yellow_combo.Count){
 			int offset = 0;
-			for(int i = 0; i< temp.Count-3; i++){
-				for(int x = i; x<i+2; x++){
+			for(int i = 0; i< temp.Count-yellow_combo.Count; i++){
+				for(int x = i; x<i+yellow_combo.Count; x++){
 					//check to see if we have a contiguous combo
 					if(temp[x].name == yellow_combo[offset])
 						offset++;
@@ -190,10 +190,29 @@ public class combo_master : MonoBehaviour {
 		combo_timer = 7;
 		combo_count = 0;
         GameObject temp_Thing = GameObject.Find("GameOptions");
-        the_options = temp_Thing.GetComponent<GameOptions>();
-		red_combo = the_options.red_combo;
-		blue_combo = the_options.blue_combo;
-		yellow_combo = the_options.yellow_combo;
+        if(temp_Thing != null){
+            the_options = temp_Thing.GetComponent<GameOptions>();
+            red_combo = the_options.red_combo;
+            blue_combo = the_options.blue_combo;
+            yellow_combo = the_options.yellow_combo;
+        } else {
+            red_combo.Add("blue");
+            red_combo.Add("combo");
+            red_combo.Add("blue");
+            red_combo.Add("combo");
+            red_combo.Add("blue");
+            red_combo.Add("combo");
+            blue_combo.Add("yellow");
+            blue_combo.Add("yellow");
+            blue_combo.Add("yellow");
+            blue_combo.Add("yellow");
+            blue_combo.Add("yellow");
+            blue_combo.Add("yellow");
+            yellow_combo.Add("combo");     
+            yellow_combo.Add("combo");      
+            yellow_combo.Add("combo");      
+            yellow_combo.Add("combo");   
+        }
 	}
 	
 	// Update is called once per frame
