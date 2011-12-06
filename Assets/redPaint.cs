@@ -5,6 +5,8 @@ public class redPaint : MonoBehaviour {
 	
 	private player_class thePlayer;
 	public float dist = 0.01f;
+	public float wait = 300;
+	public float i = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -19,8 +21,15 @@ public class redPaint : MonoBehaviour {
 		{
 			
 			//SPLATTER ANIMATION
-			Destroy(gameObject);
+			transform.animation.transform.position = transform.position;
+			transform.animation.transform.Translate(-0.02f, 0.01f, 0);
+			transform.animation.Play("missedworks");
 			
+			if(i == wait)
+			{
+				Destroy(gameObject);
+			}
+			i++;
 		}
 
 		else if((thePlayer.color == "red") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z - 1) < 0) && (transform.position.z == 0)))
@@ -29,7 +38,6 @@ public class redPaint : MonoBehaviour {
 			{
 
 				//CATCH
-
 				Destroy(gameObject);
 			}
 		}
