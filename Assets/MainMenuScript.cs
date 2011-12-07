@@ -8,6 +8,8 @@ public class MainMenuScript : MonoBehaviour {
     public Texture2D creditsTexture;
     public Texture2D exitTexture;
     public Texture2D sparkleTexture;
+    public Texture2D menuBar;
+    public Texture2D titleBar;
     
     public float gap_from_top_ratio;
     public float outer_ratio_gap;
@@ -65,6 +67,9 @@ public class MainMenuScript : MonoBehaviour {
             
         if (GUI.Button (new Rect (gap * 4 + icon_dim * 3, Screen.height * gap_from_top_ratio + icon_dim * outer_ratio_gap, icon_dim, icon_dim), exitTexture, ""))
             ExitButton();
+            
+        GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height), menuBar);
+        GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height), titleBar);
     }
     
     void StartButton() {
@@ -76,7 +81,7 @@ public class MainMenuScript : MonoBehaviour {
     }
     
     void CreditsButton() {
-        int blarg;
+        Application.LoadLevel("ultimate_credits_chucknorris"); 
     }
     
     void ExitButton() {
