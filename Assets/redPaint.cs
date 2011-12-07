@@ -10,6 +10,7 @@ public class redPaint : MonoBehaviour {
 	public float i = 0f;
 	public GameObject orbiter;
 	private GUIScript tolerance;
+    private Director theDirector;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,9 @@ public class redPaint : MonoBehaviour {
 				
 		GameObject temp2 = GameObject.Find("GUI - Bar");
 		tolerance = temp2.GetComponent<GUIScript>();
+        
+		GameObject temp3 = GameObject.Find("Director");
+		theDirector = temp3.GetComponent<Director>();
 	}
 	
 	// Update is called once per frame
@@ -34,6 +38,7 @@ public class redPaint : MonoBehaviour {
 			
 			if(i == wait)
 			{
+                theDirector.missed_red -= 1;
 				Destroy(gameObject);
 			}
 			
@@ -52,6 +57,7 @@ public class redPaint : MonoBehaviour {
 				print("PLEASE");
 				Destroy(gameObject);
 				print("WORK");
+                theDirector.missed_red = 0;
 				
 				//create orbiter
 				GameObject o;

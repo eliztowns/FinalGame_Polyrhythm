@@ -10,6 +10,7 @@ public class yellowPaint : MonoBehaviour {
 	public float i = 0f;
 	public GameObject orbiter;
 	private GUIScript tolerance;
+    private Director theDirector;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,9 @@ public class yellowPaint : MonoBehaviour {
 				
 		GameObject temp2 = GameObject.Find("GUI - Bar");
 		tolerance = temp2.GetComponent<GUIScript>();
+        
+		GameObject temp3 = GameObject.Find("Director");
+		theDirector = temp3.GetComponent<Director>();
 	}
 	
 	// Update is called once per frame
@@ -34,6 +38,7 @@ public class yellowPaint : MonoBehaviour {
 			
 			if(i == wait)
 			{
+                theDirector.missed_yellow -= 1;
 				Destroy(gameObject);
 			}
 			
@@ -49,6 +54,7 @@ public class yellowPaint : MonoBehaviour {
 				//CATCH
 				combos.output_queue.Enqueue("catch");
 				Destroy(gameObject);
+                theDirector.missed_yellow = 0;
 				//make orbiter
 				//print("go");
 				GameObject o;
