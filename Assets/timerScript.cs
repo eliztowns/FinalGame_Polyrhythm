@@ -9,6 +9,7 @@ public class timerScript : MonoBehaviour {
     public float time_till_kickback = 5.0f;
 	public int penalty_limit;
 	
+	
 	private player_class player;
 	
 	private bool game_over;

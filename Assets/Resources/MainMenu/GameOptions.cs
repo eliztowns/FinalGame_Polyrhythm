@@ -10,14 +10,14 @@ public class GameOptions : MonoBehaviour {
     private string old_diff = "nope";
     public int volume = 100;
     
-	public List<string> red_combo;
-	public List<string> blue_combo;
-	public List<string> yellow_combo;
+	public List<string> red_combo = new List<string>();
+	public List<string> blue_combo = new List<string>();
+	public List<string> yellow_combo = new List<string>();
     
     public TextAsset comboListFile;
     
 	void Start () {
-        comboListFile = Resources.Load("combos") as TextAsset; 
+    
 	}
 	
     void Awake() {
@@ -25,6 +25,11 @@ public class GameOptions : MonoBehaviour {
             Destroy(transform.gameObject);
         }
         DontDestroyOnLoad(transform.gameObject);
+        comboListFile = Resources.Load("combos") as TextAsset; 
+        if(difficulty != old_diff){
+            ParseCombos();
+            old_diff = difficulty;
+        }	
     }
     
 	// Update is called once per frame
@@ -39,6 +44,9 @@ public class GameOptions : MonoBehaviour {
         List<string> theText = new List<string>();
         MemoryStream stream = new MemoryStream(comboListFile.bytes);
         StreamReader sr = new StreamReader(stream);
+        red_combo = new List<string>();
+        blue_combo = new List<string>();
+        yellow_combo = new List<string>();
         while (!sr.EndOfStream)
             theText.Add(sr.ReadLine());
             

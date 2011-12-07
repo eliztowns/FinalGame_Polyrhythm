@@ -30,6 +30,7 @@ public class player_class : MonoBehaviour {
 	//game win/lose conditions
 	public int score;
 	public int penalties;
+	private float invul;
 	
 	private GUIScript gui_instance;
 	
@@ -128,7 +129,10 @@ public class player_class : MonoBehaviour {
 	
 	public void animate_drop(){
 		//Debug.Log("dropping");
-		penalties--;
+		if(invul == 0){
+			penalties--;
+			invul = 1;	
+		}
 		rainbow_counter = 0;
 	}
 	
@@ -218,6 +222,7 @@ public class player_class : MonoBehaviour {
 		spawn_pos = new Vector3(28.69785f, 0.1408268f, 0.001762569f);
 		rainbow_counter = 0;
 		//Debug.Log(name);
+		invul = 0f;
 	}
 	
 	// Update is called once per frame
@@ -226,6 +231,9 @@ public class player_class : MonoBehaviour {
 		animation_update();
 		if(remaining_tween_z != 0)
 			tweening();
+		invul -= Time.deltaTime;
+		if(invul < 0)
+			invul = 0;
 		
 	}
 }

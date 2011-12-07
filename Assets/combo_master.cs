@@ -53,18 +53,22 @@ public class combo_master : MonoBehaviour {
 			key = InputManager.get.GetNextKey();
 			if(key.name == "green") {
 				output_queue.Enqueue(key.name);
-                green_sparkles.particleEmitter.Emit();
+                if(green_sparkles)
+                    green_sparkles.particleEmitter.Emit();
 			} else if(key.name == "red") {
 				output_queue.Enqueue(key.name);
-                red_sparkles.particleEmitter.Emit();
+                if(red_sparkles)
+                    red_sparkles.particleEmitter.Emit();
             } else if(key.name == "blue") {
 				combo_interpreter.Add(key);
 				seen += key.name;
-                blue_sparkles.particleEmitter.Emit();
+                if(blue_sparkles)
+                    blue_sparkles.particleEmitter.Emit();
 			} else if(key.name == "yellow") {
 				combo_interpreter.Add(key);
 				seen += key.name;
-                yellow_sparkles.particleEmitter.Emit();
+                if(yellow_sparkles)
+                    yellow_sparkles.particleEmitter.Emit();
             }
 		}
 	}
@@ -202,12 +206,14 @@ public class combo_master : MonoBehaviour {
 		simul_timer = 0.05f;
 		combo_timer = 7;
 		combo_count = 0;
+        Debug.Log("Num of gameoptions: " + GameObject.FindGameObjectsWithTag("GameOptions").Length);
         GameObject temp_Thing = GameObject.Find("GameOptions");
-        if(temp_Thing != null){
+        if(temp_Thing != null) {
             the_options = temp_Thing.GetComponent<GameOptions>();
             red_combo = the_options.red_combo;
             blue_combo = the_options.blue_combo;
             yellow_combo = the_options.yellow_combo;
+            Debug.Log("~~~Created combo master, combo length: " + red_combo.Count + " vs. " + the_options.red_combo.Count);
         } else {
             red_combo.Add("blue");
             red_combo.Add("combo");
