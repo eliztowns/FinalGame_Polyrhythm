@@ -55,7 +55,6 @@ public class Director : MonoBehaviour {
     void OnGUI () {
         float width = 600;
         float height = 30.0f * num_messages;
-        Debug.Log((Screen.width / 4.0f) + ", 10, " + width + ", " + height);
         GUI.Label(new Rect(Screen.width / 2.0f - 300, 10, width, height), total_message);    
     }
     
