@@ -68,7 +68,7 @@ public class MainMenuScript : MonoBehaviour {
     }
     
     void StartButton() {
-        Application.LoadLevel("masterbethalex"); 
+        Application.LoadLevel("masterscene_al_gore"); 
     }
     
     void OptionsButton() {

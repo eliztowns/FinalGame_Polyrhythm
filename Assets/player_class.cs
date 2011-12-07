@@ -130,8 +130,9 @@ public class player_class : MonoBehaviour {
 	public void animate_drop(){
 		//Debug.Log("dropping");
 		if(invul == 0){
+			Debug.Log("dropped");
 			penalties--;
-			invul = 1;	
+			invul = 1f;	
 		}
 		rainbow_counter = 0;
 	}
