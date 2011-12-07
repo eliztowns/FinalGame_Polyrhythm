@@ -65,6 +65,8 @@ public class tutorial_script : MonoBehaviour {
 		bino.animation.Play("running");
 		bino.animation["running"].speed = 1.6f;
 		
+		bino.animation["powerup"].layer = 1;
+		
 		bino.animation.wrapMode = WrapMode.Once;
 		bino.animation["running"].wrapMode = WrapMode.Loop;
 		
@@ -161,7 +163,7 @@ public class tutorial_script : MonoBehaviour {
 					if(t_gui.cur_combo == "yellow"){
 						t_gui.cur_combo = "red";
 						input_lock = true;
-						t_gui.tutorial_cooldown = 7f;
+						t_gui.tutorial_cooldown =  combos.red_combo.Count;
 					}
 				}
 			}
