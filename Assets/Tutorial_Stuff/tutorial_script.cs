@@ -125,11 +125,7 @@ public class tutorial_script : MonoBehaviour {
 				drum_cooldown[1] = 0.2f;
 			}
 			if(Input.GetButtonDown("foot_pedal") && complete)
-<<<<<<< HEAD
-			   Application.LoadLevel("MainMenu-Lummis-Mouse");
-=======
 			   Application.LoadLevel("ultimate_mainmenu_chucknorris");
->>>>>>> 6db5672bbe9ca89ea311ef1317dc0048a0805b20
 			   
 			
 			foreach(string key in input){
