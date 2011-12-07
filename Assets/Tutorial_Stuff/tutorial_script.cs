@@ -22,6 +22,8 @@ public class tutorial_script : MonoBehaviour {
 	public bool[] drum_hit = {false, false, false, false};
 	private float[] drum_cooldown = {0f, 0f, 0f, 0f};
 	
+	public float count;
+	
 	GameObject bino;
 	
 	public void apply_texture(){
@@ -161,6 +163,7 @@ public class tutorial_script : MonoBehaviour {
 						idiot_timer = 0;
 						input_lock = true;
 						t_gui.tutorial_cooldown = 7f;
+						//count = combos.yellow_combo.Count;
 					}
 				}
 				else if (key=="yellow_combo"){
@@ -173,7 +176,7 @@ public class tutorial_script : MonoBehaviour {
 					if(t_gui.cur_combo == "yellow"){
 						t_gui.cur_combo = "red";
 						input_lock = true;
-						t_gui.tutorial_cooldown =  combos.red_combo.Count;
+						t_gui.tutorial_cooldown =  7f;
 					}
 				}
 			}
