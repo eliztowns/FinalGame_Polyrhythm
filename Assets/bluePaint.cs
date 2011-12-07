@@ -36,7 +36,7 @@ public class bluePaint : MonoBehaviour {
 			
 		}
 		
-		if((thePlayer.color == "blue") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z - 1) < 0) && (transform.position.z == 0)))
+		if((thePlayer.color == "blue") && Mathf.Abs(thePlayer.transform.position.z - transform.position.z) < 0.1)
 		{
 			if(transform.position.x <= (thePlayer.transform.position.x + dist))
 			{
@@ -45,24 +45,6 @@ public class bluePaint : MonoBehaviour {
 				print("PLEASEB");
 				Destroy(gameObject);
 				print("WORKB");
-			}
-		}
-		else if((thePlayer.color == "blue") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z -1) > 0) && (transform.position.z > 0)))
-		{
-			if(transform.position.x <= (thePlayer.transform.position.x + dist))
-			{
-				combos.output_queue.Enqueue("catch");
-				//CATCH
-				Destroy(gameObject);
-			}
-		}
-		else if((thePlayer.color == "blue") && ((thePlayer.transform.position.z < 0) && (transform.position.z < 0)))
-		{
-			if(transform.position.x <= (thePlayer.transform.position.x + dist))
-			{
-				combos.output_queue.Enqueue("catch");
-				//CATCH
-				Destroy(gameObject);
 			}
 		}
 		
