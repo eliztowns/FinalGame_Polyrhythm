@@ -33,6 +33,7 @@ public class blue_spawn : MonoBehaviour {
 			{
 				spawnPlace = new Vector3(5.32399f, 1f, 0.25f);
 			}
+			
 			bluePaint bp = (bluePaint)Instantiate(bpPrefab);
 			bp.transform.position = spawnPlace;
 			
