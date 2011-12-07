@@ -36,7 +36,7 @@ public class redPaint : MonoBehaviour {
 			
 		}
 
-		if((thePlayer.color == "red") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z - 1) < 0) && (transform.position.z == 0)))
+		if((thePlayer.color == "red") && Mathf.Abs(thePlayer.transform.position.z - transform.position.z) < 0.1)
 		{
 			if(transform.position.x <= (thePlayer.transform.position.x + dist))
 			{
@@ -46,24 +46,6 @@ public class redPaint : MonoBehaviour {
 				print("PLEASE");
 				Destroy(gameObject);
 				print("WORK");
-			}
-		}
-		else if((thePlayer.color == "red") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z -1) > 0) && (transform.position.z > 0)))
-		{
-			if(transform.position.x <= (thePlayer.transform.position.x + dist))
-			{
-				//CATCH
-				combos.output_queue.Enqueue("catch");
-				Destroy(gameObject);
-			}
-		}
-		else if((thePlayer.color == "red") && ((thePlayer.transform.position.z < 0) && (transform.position.z < 0)))
-		{
-			if(transform.position.x <= (thePlayer.transform.position.x + dist))
-			{
-				//CATCH
-				combos.output_queue.Enqueue("catch");
-				Destroy(gameObject);
 			}
 		}
 
