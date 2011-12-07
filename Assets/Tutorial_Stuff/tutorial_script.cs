@@ -94,7 +94,7 @@ public class tutorial_script : MonoBehaviour {
 			input_lock = false;
 			idiot_timer += Time.deltaTime;
 			if(idiot_timer > 7){
-				t_gui.tutorial_cooldown = 7f;
+				t_gui.tutorial_cooldown = 10f;
 				input_lock = true;
 				idiot_timer = 0;
 			}
@@ -149,7 +149,7 @@ public class tutorial_script : MonoBehaviour {
 						t_gui.cur_combo = "done";
 						idiot_timer = 0;
 						input_lock = true;
-						t_gui.tutorial_cooldown = 7f;
+						t_gui.tutorial_cooldown = 10f;
 					}
 				}
 				else if (key == "blue_combo"){
@@ -162,7 +162,7 @@ public class tutorial_script : MonoBehaviour {
 						t_gui.cur_combo = "yellow";
 						idiot_timer = 0;
 						input_lock = true;
-						t_gui.tutorial_cooldown = 7f;
+						t_gui.tutorial_cooldown = 10f;
 						//count = combos.yellow_combo.Count;
 					}
 				}
@@ -176,7 +176,7 @@ public class tutorial_script : MonoBehaviour {
 					if(t_gui.cur_combo == "yellow"){
 						t_gui.cur_combo = "red";
 						input_lock = true;
-						t_gui.tutorial_cooldown =  7f;
+						t_gui.tutorial_cooldown =  10f;
 					}
 				}
 			}

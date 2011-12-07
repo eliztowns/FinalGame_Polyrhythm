@@ -57,11 +57,15 @@ public class tutorial_gui : MonoBehaviour {
 		if(cur_combo == "blue" && tutorial_cooldown > 0){
 			GUI.Label(new Rect(0, Screen.height-100, Screen.width, 300), "This is a blue combo:");
 			int temp_time = (int)tutorial_cooldown;
-			int offset = 7 - temp_time;
+			int offset = 9 - temp_time;
 			if(tutorial_cooldown - (float)temp_time < 0.5f){
 			int lit = -1;
-			if(offset < combos.blue_combo.Count)
-				lit = decode(combos.blue_combo[offset]);
+			if(offset < combos.blue_combo.Count){
+				try{
+					lit = decode(combos.blue_combo[offset]);
+				}
+				catch{ ; }
+			}
 			else
 				tutorial_cooldown = 0;
 			if(lit == 3){
@@ -75,7 +79,7 @@ public class tutorial_gui : MonoBehaviour {
 		else if(cur_combo == "yellow" && tutorial_cooldown > 0){
 			GUI.Label(new Rect(0, Screen.height-100, Screen.width, 300), "This is a yellow combo:");
 			int temp_time = (int)tutorial_cooldown;
-			int offset = 6 - temp_time;
+			int offset = 9 - temp_time;
 			test = offset;
 			if(tutorial_cooldown - (float)temp_time < 0.5f){
 			int lit = -1;
@@ -101,7 +105,7 @@ public class tutorial_gui : MonoBehaviour {
 		else if(cur_combo == "red" && tutorial_cooldown > 0){
 			GUI.Label(new Rect(0, Screen.height-100, Screen.width, 300), "This is a red combo:");
 			int temp_time = (int)tutorial_cooldown;
-			int offset = 6 - temp_time;
+			int offset = 9 - temp_time;
 			test = offset;
 			if(tutorial_cooldown - (float)temp_time < 0.5f){
 			int lit = -1;
@@ -158,7 +162,7 @@ public class tutorial_gui : MonoBehaviour {
 		
 		cur_combo = "blue";
 		
-		tutorial_cooldown = 7f;
+		tutorial_cooldown = 10f;
 	
 	}
 	
