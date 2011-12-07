@@ -37,7 +37,7 @@ public class yellowPaint : MonoBehaviour {
 			
 		}
 		
-		if((thePlayer.color == "yellow") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z - 1) < 0) && (transform.position.z == 0)))
+		if((thePlayer.color == "yellow") && Mathf.Abs(thePlayer.transform.position.z - transform.position.z) < 0.1)
 		{
 			if(transform.position.x <= (thePlayer.transform.position.x + dist))
 			{
@@ -52,36 +52,5 @@ public class yellowPaint : MonoBehaviour {
 				o.transform.parent=thePlayer.transform;
 			}
 		}
-		else if((thePlayer.color == "yellow") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z - 1) > 0) && (transform.position.z > 0)))
-		{
-			if(transform.position.x <= (thePlayer.transform.position.x + dist))
-			{
-				Debug.Log("bleh");
-				//CATCH
-				combos.output_queue.Enqueue("catch");
-				Destroy(gameObject);
-				//make orbiter
-				//print("go");
-				GameObject o;
-				o=(GameObject)Instantiate(orbiter,thePlayer.transform.position,thePlayer.transform.rotation);
-				o.transform.parent=thePlayer.transform;
-			}
-		}
-		else if((thePlayer.color == "yellow") && ((thePlayer.transform.position.z < 0) && (transform.position.z < 0)))
-		{
-			if(transform.position.x <= (thePlayer.transform.position.x + dist))
-			{
-				Debug.Log("bleh");
-				//CATCH
-				combos.output_queue.Enqueue("catch");
-				Destroy(gameObject);
-				//make orbiter
-				//print("go");
-				GameObject o;
-				o=(GameObject)Instantiate(orbiter,thePlayer.transform.position,thePlayer.transform.rotation);
-				o.transform.parent=thePlayer.transform;
-			}
-		}
-		
 	}
 }
