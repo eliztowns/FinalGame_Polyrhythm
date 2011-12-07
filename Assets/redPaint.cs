@@ -4,8 +4,11 @@ using System.Collections;
 public class redPaint : MonoBehaviour {
 	
 	private player_class thePlayer;
-	public float dist = 0.01f;
+	public float dist = 1f;
 	private combo_master combos;
+	public float wait = 300f;
+	public float i = 0f;
+	public GameObject orbiter;
 
 	// Use this for initialization
 	void Start () {
@@ -21,38 +24,37 @@ public class redPaint : MonoBehaviour {
 		{
 			combos.output_queue.Enqueue("drop");
 			//SPLATTER ANIMATION
-			Destroy(gameObject);
+			transform.animation.transform.Translate(-0.02f, 0f, 0f);
+			transform.Translate(-0.02f, 0f, 0f);
+			transform.animation.Play("missedworks");
+			
+			if(i == wait)
+			{
+				Destroy(gameObject);
+			}
+			
+			i++;
 			
 		}
 
-		else if((thePlayer.color == "red") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z - 1) < 0) && (transform.position.z == 0)))
+		if((thePlayer.color == "red") && Mathf.Abs(thePlayer.transform.position.z - transform.position.z) < 0.1)
 		{
 			if(transform.position.x <= (thePlayer.transform.position.x + dist))
 			{
 
 				//CATCH
 				combos.output_queue.Enqueue("catch");
+				print("PLEASE");
 				Destroy(gameObject);
+				print("WORK");
+				
+				//create orbiter
+				GameObject o;
+				o=(GameObject)Instantiate(orbiter,thePlayer.transform.position,thePlayer.transform.rotation);
+				o.transform.parent=thePlayer.transform;
 			}
 		}
-		else if((thePlayer.color == "red") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z -1) > 0) && (transform.position.z > 0)))
-		{
-			if(transform.position.x <= (thePlayer.transform.position.x + dist))
-			{
-				//CATCH
-				combos.output_queue.Enqueue("catch");
-				Destroy(gameObject);
-			}
-		}
-		else if((thePlayer.color == "red") && ((thePlayer.transform.position.z < 0) && (transform.position.z < 0)))
-		{
-			if(transform.position.x <= (thePlayer.transform.position.x + dist))
-			{
-				//CATCH
-				combos.output_queue.Enqueue("catch");
-				Destroy(gameObject);
-			}
-		}
+
 
 		
 	}

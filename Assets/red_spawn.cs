@@ -23,33 +23,27 @@ public class red_spawn : MonoBehaviour {
 			if(x%2 == 0)
 			{
 				spawnPlace = new Vector3(5.32399f, 1f, -0.25f);
-				Vector3 pos1 = new Vector3(5.32399f, 1f, -0.25f);
-			
-				redPaint rp = (redPaint)Instantiate(rpPrefab);
-				rp.transform.position = spawnPlace;
-			
-				rp.transform.parent = transform;
 			}
 			else if(x%3 == 0)
 			{
 				spawnPlace = new Vector3(5.32399f, 1f, 0f);
-				Vector3 pos2 = new Vector3(5.32399f, 1f, 0f);
-			
-				redPaint rp = (redPaint)Instantiate(rpPrefab);
-				rp.transform.position = spawnPlace;
-			
-				rp.transform.parent = transform;
 			}
 			else if(x%5 == 0)
 			{
 				spawnPlace = new Vector3(5.32399f, 1f, 0.25f);
-				Vector3 pos3 = new Vector3(5.32399f, 1f, 0.25f);
-			
-				redPaint rp = (redPaint)Instantiate(rpPrefab);
-				rp.transform.position = spawnPlace;
-			
-				rp.transform.parent = transform;
 			}
+			
+			redPaint rp = (redPaint)Instantiate(rpPrefab);
+			rp.transform.position = spawnPlace;
+			
+			rp.transform.animation.Play("spawningworks");
+			rp.transform.animation.wrapMode = WrapMode.Once;
+			rp.transform.animation["fallingworks"].wrapMode = WrapMode.Loop;
+			
+			rp.transform.animation.CrossFadeQueued("fallingworks");
+		
+			rp.transform.parent = transform;
+			
 		}
 	}
 }

@@ -112,7 +112,7 @@ public class player_class : MonoBehaviour {
 	}
 	
 	public void animate_drop(){
-		Debug.Log("dropping");
+		//Debug.Log("dropping");
 		penalties--;
 	}
 	
