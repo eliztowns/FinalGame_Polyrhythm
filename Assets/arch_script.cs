@@ -12,7 +12,7 @@ public class arch_script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 trans = new Vector3(Time.deltaTime, 0, 0);
+		Vector3 trans = new Vector3(0, Time.deltaTime*5, 0);
 		transform.Translate(trans);
 		
 		if(transform.position.x + 3.4f < player.transform.position.x)

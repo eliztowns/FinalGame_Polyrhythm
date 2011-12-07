@@ -215,7 +215,7 @@ public class player_class : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		spawn_pos = new Vector3(28.69785f, 0.1408268f, -0.1474802f);
+		spawn_pos = new Vector3(28.69785f, 0.1408268f, 0.001762569f);
 		rainbow_counter = 0;
 		//Debug.Log(name);
 	}
