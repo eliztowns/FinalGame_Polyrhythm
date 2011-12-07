@@ -6,7 +6,7 @@ public class redPaint : MonoBehaviour {
 	private player_class thePlayer;
 	public float dist = 1f;
 	private combo_master combos;
-	public float wait = 300f;
+	public float wait = 30f;
 	public float i = 0f;
 
 	// Use this for initialization
@@ -38,7 +38,7 @@ public class redPaint : MonoBehaviour {
 
 		if((thePlayer.color == "red") && Mathf.Abs(thePlayer.transform.position.z - transform.position.z) < 0.1)
 		{
-			if(transform.position.x <= (thePlayer.transform.position.x + dist))
+			if((transform.position.x <= (thePlayer.transform.position.x + dist)) && (transform.position.x > thePlayer.transform.position.x))
 			{
 
 				//CATCH
