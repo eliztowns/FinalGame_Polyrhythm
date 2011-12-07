@@ -37,6 +37,7 @@ public class GUIScript : MonoBehaviour {
     private int offset_rate = 5;
     public float tolerance_increase_ratio;
     private string color = "";
+    public bool tolerant = true;
 
     // Use this for initialization
     void Start(){
@@ -94,6 +95,8 @@ public class GUIScript : MonoBehaviour {
         if(this.rainbow_offest >= Screen.width)
             this.rainbow_offest = 0;
         
+        isInTolerance();
+        
         if(Time.time >= this.glimmer_counter + this.glimmer_start_time)
             this.glimmer_start_time = Time.time;
     }
@@ -140,6 +143,9 @@ public class GUIScript : MonoBehaviour {
                 GUI.DrawTexture(toleranceBarRect, toleranceBarTexture);
             }
         }
-        
+    }
+    
+    void isInTolerance() {
+        tolerant = ((50.0f + tolerance >= value) && (50.0f - tolerance <=  value));
     }
 }
