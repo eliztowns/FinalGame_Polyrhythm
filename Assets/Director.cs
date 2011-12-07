@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Director : MonoBehaviour {
-
+	
+	public GUISkin skin;
+	
     public List<string> red_combo;
     public List<string> blue_combo;
     public List<string> yellow_combo;
@@ -37,6 +39,10 @@ public class Director : MonoBehaviour {
     private string total_message = "";
     private int num_messages = 0;
     
+    public int missed_red = -1;
+    public int missed_yellow = -1;
+    public int missed_blue = -1;
+    
 	// Use this for initialization
 	void Start () {
         instantiateGameOptions();	
@@ -50,12 +56,33 @@ public class Director : MonoBehaviour {
         developMessage();
         if(red_combo.Count > 0)
             setMessages();
+        checkMisses();
 	}
     
+    void checkMisses() {
+        if(missed_blue < -1)
+            blue_message_bool = true;
+        else    
+            blue_message_bool = false;
+            
+        if(missed_red < -1)
+            red_message_bool = true;
+        else    
+            red_message_bool = false;
+            
+        if(missed_yellow < -1)
+            yellow_message_bool = true;
+        else    
+            yellow_message_bool = false;
+    }
+    
     void OnGUI () {
-        float width = 600;
+		
+		GUI.skin = skin;
+		
+        float width = Screen.width;
         float height = 30.0f * num_messages;
-        GUI.Label(new Rect(Screen.width / 2.0f - 300, 10, width, height), total_message);    
+        GUI.Label(new Rect(0, 10, width, height), total_message);    
     }
     
     void developMessage() {

@@ -91,8 +91,11 @@ public class tutorial_script : MonoBehaviour {
 		if(t_gui.tutorial_cooldown == 0){
 			input_lock = false;
 			idiot_timer += Time.deltaTime;
-			if(idiot_timer > 7)
+			if(idiot_timer > 7){
 				t_gui.tutorial_cooldown = 7f;
+				input_lock = true;
+				idiot_timer = 0;
+			}
 				
 		}
 		
@@ -122,7 +125,7 @@ public class tutorial_script : MonoBehaviour {
 				drum_cooldown[1] = 0.2f;
 			}
 			if(Input.GetButtonDown("foot_pedal") && complete)
-			   Application.LoadLevel("Options-Lummis-Mouse");
+			   Application.LoadLevel("MainMenu-Lummis-Mouse");
 			   
 			
 			foreach(string key in input){

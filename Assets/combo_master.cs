@@ -116,7 +116,7 @@ public class combo_master : MonoBehaviour {
 		if(temp.Count >= red_combo.Count){
 			//red
 			int offset = 0;
-			for(int i = 0; i< temp.Count-red_combo.Count +1; i++){
+			for(int i = 0; i< temp.Count-red_combo.Count + 1; i++){
 				for(int x = i; x<i+red_combo.Count; x++){
 					//check to see if we have a contiguous combo
 					if(temp[x].name == red_combo[offset])
