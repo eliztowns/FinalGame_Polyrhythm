@@ -44,7 +44,7 @@ public class yellowPaint : MonoBehaviour {
 		if((thePlayer.color == "yellow") && Mathf.Abs(thePlayer.transform.position.z - transform.position.z) < 0.1)
 		{
 			if((transform.position.x <= (thePlayer.transform.position.x + dist)) && (transform.position.x > thePlayer.transform.position.x)
-			   																		&& ((tolerance.value > 40.0f) && (tolerance.value < 60.0f)))
+			   																		&& ((tolerance.value > 30.0f) && (tolerance.value < 70.0f)))
 			{
 				//CATCH
 				combos.output_queue.Enqueue("catch");
