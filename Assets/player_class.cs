@@ -12,6 +12,11 @@ using System.Collections.Generic;
 
 public class player_class : MonoBehaviour {
 	
+	//RAINBOW ARCHWAY
+	public arch_script arch;
+	private int rainbow_counter;
+	private Vector3 spawn_pos;
+	
 	public int lane;
 	private combo_master input_feed;
 	public string color;
@@ -108,12 +113,23 @@ public class player_class : MonoBehaviour {
 	
 	public void animate_catch(){
 		score += 100;
+		rainbow_counter++;
 		bino.animation.CrossFade("jumping");
+		
+		arch_script ra;
+		
+		if(rainbow_counter >= 4){
+			arch_script reda = (arch_script)Instantiate(arch);
+			reda.transform.position = spawn_pos;
+			
+		}
+		
 	}
 	
 	public void animate_drop(){
 		//Debug.Log("dropping");
 		penalties--;
+		rainbow_counter = 0;
 	}
 	
 	public void receive_input(){
@@ -199,6 +215,8 @@ public class player_class : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		spawn_pos = new Vector3(28.69785f, 0.1408268f, -0.1474802f);
+		rainbow_counter = 0;
 		//Debug.Log(name);
 	}
 	
