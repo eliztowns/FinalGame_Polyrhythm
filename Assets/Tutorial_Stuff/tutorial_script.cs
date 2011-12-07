@@ -17,6 +17,8 @@ public class tutorial_script : MonoBehaviour {
 	private float cooldown;
 	public bool complete;
 	
+	public float idiot_timer;
+	
 	public bool[] drum_hit = {false, false, false, false};
 	private float[] drum_cooldown = {0f, 0f, 0f, 0f};
 	
@@ -86,8 +88,14 @@ public class tutorial_script : MonoBehaviour {
 				drum_hit[i] = false;
 		}
 		
-		if(t_gui.tutorial_cooldown == 0)
+		if(t_gui.tutorial_cooldown == 0){
 			input_lock = false;
+			idiot_timer += Time.deltaTime;
+			if(idiot_timer > 7)
+				t_gui.tutorial_cooldown = 7f;
+				
+		}
+		
 		
 		receive_input();
 		
@@ -126,10 +134,6 @@ public class tutorial_script : MonoBehaviour {
 					drum_hit[0] = true;
 					drum_cooldown[0] = 0.2f;	
 				}
-				else if (key == "foot_pedal"){
-					if(complete)
-						Application.LoadLevel("Options-Lummis-Mouse");
-				}
 				else if (key == "red_combo"){
 					color = "red";
 					cooldown = 3;
@@ -138,6 +142,7 @@ public class tutorial_script : MonoBehaviour {
 					//check to see if this was what they were trying to do
 					if(t_gui.cur_combo == "red"){
 						t_gui.cur_combo = "done";
+						idiot_timer = 0;
 						input_lock = true;
 						t_gui.tutorial_cooldown = 7f;
 					}
@@ -150,12 +155,14 @@ public class tutorial_script : MonoBehaviour {
 					//check to see if this was what they were trying to do
 					if(t_gui.cur_combo == "blue"){
 						t_gui.cur_combo = "yellow";
+						idiot_timer = 0;
 						input_lock = true;
 						t_gui.tutorial_cooldown = 7f;
 					}
 				}
 				else if (key=="yellow_combo"){
 					color = "yellow";
+					idiot_timer = 0;
 					cooldown = 3;
 					apply_texture();
 					
