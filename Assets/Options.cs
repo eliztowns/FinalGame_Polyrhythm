@@ -28,8 +28,6 @@ public class Options : MonoBehaviour {
         icon_dim = ratio * hardGameTexture.width;
         selection_dim = icon_dim * 1.5f;
         selection_mod = (selection_dim - icon_dim)/2.0f;
-        GameObject temp_Thing = GameObject.Find("GameOptions");
-        gameOptions = temp_Thing.GetComponent<GameOptions>();
 	}
 	
 	// Update is called once per frame
@@ -71,16 +69,22 @@ public class Options : MonoBehaviour {
     }
     
     void HardButton() {
+        GameObject temp_Thing = GameObject.Find("GameOptions");
+        gameOptions = temp_Thing.GetComponent<GameOptions>();
         gameOptions.difficulty = "hard";
 		Application.LoadLevel("Tutorial");
     }
     
     void MediumButton() {
+        GameObject temp_Thing = GameObject.Find("GameOptions");
+        gameOptions = temp_Thing.GetComponent<GameOptions>();
         gameOptions.difficulty = "medium";
 		Application.LoadLevel("Tutorial");
     }
     
     void EasyButton() {
+        GameObject temp_Thing = GameObject.Find("GameOptions");
+        gameOptions = temp_Thing.GetComponent<GameOptions>();
         gameOptions.difficulty = "easy";
 		Application.LoadLevel("Tutorial");
     }
