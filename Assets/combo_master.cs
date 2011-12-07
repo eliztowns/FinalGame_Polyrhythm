@@ -84,7 +84,7 @@ public class combo_master : MonoBehaviour {
 			if(combo_interpreter[i].time > cutofftime){
 				//check to see if the next one is simultaneous with this one
 				if(i<combo_interpreter.Count-1){
-					if(combo_interpreter[i+1].time - combo_interpreter[i].time <= simul_timer){
+					if(combo_interpreter[i+1].time - combo_interpreter[i].time <= simul_timer && combo_interpreter[i].name != combo_interpreter[i+1].name){
 						//it was simultaneous, create a combo hit for it
 						key_pair combo;
 						combo.name = "combo";
