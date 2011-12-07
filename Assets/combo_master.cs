@@ -19,6 +19,11 @@ public class combo_master : MonoBehaviour {
 	public List<string> red_combo = new List<string>();
 	public List<string> blue_combo = new List<string>();
 	public List<string> yellow_combo = new List<string>();
+    
+    public GameObject blue_sparkles;
+    public GameObject green_sparkles;
+    public GameObject red_sparkles;
+    public GameObject yellow_sparkles;
 	
 	public static combo_master get{
 		get{
@@ -46,13 +51,21 @@ public class combo_master : MonoBehaviour {
 		
 		while(InputManager.get.HasKeys()){
 			key = InputManager.get.GetNextKey();
-			if(key.name == "green" || key.name == "red"){ //|| key.name == "foot_pedal"){
+			if(key.name == "green") {
 				output_queue.Enqueue(key.name);
-			}
-			else if(key.name == "blue" || key.name == "yellow"){
+                green_sparkles.particleEmitter.Emit();
+			} else if(key.name == "red") {
+				output_queue.Enqueue(key.name);
+                red_sparkles.particleEmitter.Emit();
+            } else if(key.name == "blue") {
 				combo_interpreter.Add(key);
 				seen += key.name;
-			}
+                blue_sparkles.particleEmitter.Emit();
+			} else if(key.name == "yellow") {
+				combo_interpreter.Add(key);
+				seen += key.name;
+                yellow_sparkles.particleEmitter.Emit();
+            }
 		}
 	}
 	
