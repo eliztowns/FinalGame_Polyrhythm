@@ -49,7 +49,7 @@ public class yellowPaint : MonoBehaviour {
 		if((thePlayer.color == "yellow") && Mathf.Abs(thePlayer.transform.position.z - transform.position.z) < 0.1)
 		{
 			if((transform.position.x <= (thePlayer.transform.position.x + dist)) && (transform.position.x > thePlayer.transform.position.x)
-			   																		&& ((tolerance.value > 30.0f) && (tolerance.value < 70.0f)))
+			   																		&& (tolerance.tolerant))
 			{
 				//CATCH
 				combos.output_queue.Enqueue("catch");
@@ -60,7 +60,8 @@ public class yellowPaint : MonoBehaviour {
 				GameObject o;
 				o=(GameObject)Instantiate(orbiter,thePlayer.transform.position,thePlayer.transform.rotation);
 				o.transform.parent=thePlayer.transform;
-			}
+			} else if(!tolerance.tolerant)
+                theDirector.missed_paint_message_bool = true;
 		}
 	}
 }

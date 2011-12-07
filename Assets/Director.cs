@@ -29,11 +29,14 @@ public class Director : MonoBehaviour {
     public bool red_message_bool = false;
     public bool yellow_message_bool = false;
     public bool blue_message_bool = false;
+    public bool missed_paint_message_bool = false;
     
     private string tolerance_message = "";
     private string red_message = "";
     private string yellow_message = "";
     private string blue_message = "";
+    private string missed_paint_message = "";
+    
     private string total_message = "";
     private int num_messages = 0;
     
@@ -100,7 +103,12 @@ public class Director : MonoBehaviour {
         }
         
         if(blue_message_bool) {
-            total_message += blue_message;
+            total_message += blue_message + "\n";
+            num_messages += 1;
+        }
+        
+        if(missed_paint_message_bool) {
+            total_message += missed_paint_message;
             num_messages += 1;
         }
     }
@@ -112,6 +120,7 @@ public class Director : MonoBehaviour {
             } else {
                 time_outside_tolerance = 0;
             }
+            missed_paint_message_bool = false;
         } else {
             if(inside_tolerance){
                 time_outside_tolerance -= 0.1f * Time.deltaTime;            
@@ -148,6 +157,7 @@ public class Director : MonoBehaviour {
     
     void setMessages() {
         tolerance_message = "You are messing up your foot pedal timings!";
+        
         red_message = "You are messing up the red combo, it is: " + red_combo[0];
         for(int i = 1; i < red_combo.Count; i++)
             red_message += ", " + red_combo[i];
@@ -159,6 +169,8 @@ public class Director : MonoBehaviour {
         yellow_message = "You are messing up the yellow combo, it is: " + yellow_combo[0];
         for(int i = 1; i < yellow_combo.Count; i++)
             yellow_message += ", " + yellow_combo[i];
+            
+        missed_paint_message = "You cannot pick up that paint blob because your bar is outside the tolerance zone!";
     }
     
 	void instantiateGameOptions() {

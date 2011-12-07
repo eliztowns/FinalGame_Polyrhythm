@@ -11,8 +11,10 @@ public class timerScript : MonoBehaviour {
 	
 	
 	private player_class player;
-	
+	public Texture2D winScreen;
+	public Texture2D loseScreen;
 	private bool game_over;
+    private bool player_won = false;
 	
 	// Use this for initialization
 	void Start () {
@@ -27,9 +29,11 @@ public class timerScript : MonoBehaviour {
 		player = player_prefab.GetComponent<player_class>();
 	}
 	
-	void onGui() {
-		if(game_over)
-			GUI.Label(new Rect(300, 300, 500, 100), "GAME OVER!");
+	void OnGUI() {
+		if(game_over && player_won)
+            GUI.DrawTexture(new Rect (Screen.width/2 - 256,Screen.height/2 - 256, 512, 512), winScreen);
+        else if(game_over && !player_won)
+            GUI.DrawTexture(new Rect (Screen.width/2 - 256,Screen.height/2 - 256, 512, 512), loseScreen);
 		
 	}
 	
@@ -37,15 +41,19 @@ public class timerScript : MonoBehaviour {
 	void Update () {
 		game_time += Time.deltaTime;
 		
-		if(game_time > end_time)
+		if(game_time > end_time) {
 			game_over = true;
+            player_won = true;
+        }
 		
 		if(menu_time > time_till_kickback)
 			Application.LoadLevel("MainMenu-Lummis-Mouse");
 		
-		if (player.penalties <= 0)
+		if (player.penalties <= 0) {
 			game_over = true;
-		
+            player_won = false;
+		}
+        
 		if(game_over)
 			menu_time += Time.deltaTime;
 	
