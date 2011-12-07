@@ -41,7 +41,7 @@ public class timerScript : MonoBehaviour {
 			game_over = true;
 		
 		if(menu_time > time_till_kickback)
-			Application.LoadLevel("MainMenu-Lummis-Mouse");
+			Application.LoadLevel("ultimate_mainmenu_chucknorris");
 		
 		if (player.penalties <= 0)
 			game_over = true;
