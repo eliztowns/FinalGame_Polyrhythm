@@ -54,7 +54,7 @@ public class tutorial_gui : MonoBehaviour {
 		
 		
 		if(cur_combo == "blue" && tutorial_cooldown > 0){
-			GUI.Label(new Rect(Screen.width/2 - 150, Screen.height-100, 500, 300), "This is a blue combo:");
+			GUI.Label(new Rect(0, Screen.height-100, Screen.width, 300), "This is a blue combo:");
 			int temp_time = (int)tutorial_cooldown;
 			if(tutorial_cooldown - (float)temp_time < 0.5f){
 			int lit = -1;
@@ -69,7 +69,7 @@ public class tutorial_gui : MonoBehaviour {
 			}
 		}
 		else if(cur_combo == "yellow" && tutorial_cooldown > 0){
-			GUI.Label(new Rect(Screen.width/2-150, Screen.height-100, 500, 300), "This is a yellow combo:");
+			GUI.Label(new Rect(0, Screen.height-100, Screen.width, 300), "This is a yellow combo:");
 			int temp_time = (int)tutorial_cooldown;
 			if(tutorial_cooldown - (float)temp_time < 0.5f){
 			int lit = -1;
@@ -85,7 +85,7 @@ public class tutorial_gui : MonoBehaviour {
 		}}
 		
 		else if(cur_combo == "red" && tutorial_cooldown > 0){
-			GUI.Label(new Rect(Screen.width/2-150, Screen.height-100, 500, 300), "This is a red combo:");
+			GUI.Label(new Rect(0, Screen.height-100, Screen.width, 300), "This is a red combo:");
 			int temp_time = (int)tutorial_cooldown;
 			if(tutorial_cooldown - (float)temp_time < 0.5f){
 			int lit = -1;
@@ -100,7 +100,7 @@ public class tutorial_gui : MonoBehaviour {
 				
 		}}
 		else if(tutorial_cooldown>0 || t_script.complete){
-			GUI.Label(new Rect(Screen.width/2- 150, Screen.height/2, 500, 300), "Nice job!");
+			GUI.Label(new Rect(0, Screen.height - 100, Screen.width, 300), "Nice job!");
 			tutorial_cooldown = 0;
 			t_script.complete = true;
 		}

@@ -68,11 +68,11 @@ public class MainMenuScript : MonoBehaviour {
     }
     
     void StartButton() {
-        Application.LoadLevel("masterscene_al_gore"); 
+        Application.LoadLevel("ultimate_game_chucknorris"); 
     }
     
     void OptionsButton() {
-        Application.LoadLevel("Options-Lummis-Mouse"); 
+        Application.LoadLevel("ultimate_options_chucknorris"); 
     }
     
     void CreditsButton() {

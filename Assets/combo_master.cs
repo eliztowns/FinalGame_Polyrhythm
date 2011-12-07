@@ -169,7 +169,7 @@ public class combo_master : MonoBehaviour {
 		//yellow
 		if(temp.Count >= yellow_combo.Count){
 			int offset = 0;
-			for(int i = 0; i< temp.Count-yellow_combo.Count + 1; i++){
+			for(int i = 0; i< temp.Count-yellow_combo.Count +1; i++){
 				for(int x = i; x<i+yellow_combo.Count; x++){
 					//check to see if we have a contiguous combo
 					if(temp[x].name == yellow_combo[offset])

@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Director : MonoBehaviour {
-
+	
+	public GUISkin skin;
+	
     public List<string> red_combo;
     public List<string> blue_combo;
     public List<string> yellow_combo;
@@ -78,9 +80,12 @@ public class Director : MonoBehaviour {
     }
     
     void OnGUI () {
-        float width = 600;
+		
+		GUI.skin = skin;
+		
+        float width = Screen.width;
         float height = 30.0f * num_messages;
-        GUI.Label(new Rect(Screen.width / 2.0f - 300, 10, width, height), total_message);    
+        GUI.Label(new Rect(0, 10, width, height), total_message);    
     }
     
     void developMessage() {
