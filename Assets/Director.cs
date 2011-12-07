@@ -84,7 +84,7 @@ public class Director : MonoBehaviour {
 		GUI.skin = skin;
 		
         float width = Screen.width;
-        float height = 30.0f * num_messages;
+        float height = Screen.height;
         GUI.Label(new Rect(0, 10, width, height), total_message);    
     }
     
