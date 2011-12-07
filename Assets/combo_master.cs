@@ -16,9 +16,9 @@ public class combo_master : MonoBehaviour {
 	private InputManager input;
     private GameOptions the_options;
 	
-	private List<string> red_combo = new List<string>();
-	private List<string> blue_combo = new List<string>();
-	private List<string> yellow_combo = new List<string>();
+	public List<string> red_combo = new List<string>();
+	public List<string> blue_combo = new List<string>();
+	public List<string> yellow_combo = new List<string>();
 	
 	public static combo_master get{
 		get{

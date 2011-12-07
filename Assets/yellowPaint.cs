@@ -28,7 +28,6 @@ public class yellowPaint : MonoBehaviour {
 		{
 			if(transform.position.x <= (thePlayer.transform.position.x + dist))
 			{
-				Debug.Log("bleh");
 				//CATCH
 				combos.output_queue.Enqueue("catch");
 				Destroy(gameObject);
