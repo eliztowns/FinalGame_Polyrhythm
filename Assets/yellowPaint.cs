@@ -9,12 +9,16 @@ public class yellowPaint : MonoBehaviour {
 	public float wait = 30f;
 	public float i = 0f;
 	public GameObject orbiter;
+	private GUIScript tolerance;
 
 	// Use this for initialization
 	void Start () {
 		GameObject temp = GameObject.Find("player_prefab");
 		thePlayer = temp.GetComponent<player_class>();
 		combos = temp.GetComponent<combo_master>();
+				
+		GameObject temp2 = GameObject.Find("GUI - Bar");
+		tolerance = temp2.GetComponent<GUIScript>();
 	}
 	
 	// Update is called once per frame
@@ -39,7 +43,8 @@ public class yellowPaint : MonoBehaviour {
 		
 		if((thePlayer.color == "yellow") && Mathf.Abs(thePlayer.transform.position.z - transform.position.z) < 0.1)
 		{
-			if((transform.position.x <= (thePlayer.transform.position.x + dist)) && (transform.position.x > thePlayer.transform.position.x))
+			if((transform.position.x <= (thePlayer.transform.position.x + dist)) && (transform.position.x > thePlayer.transform.position.x)
+			   																		&& ((tolerance.value > 40.0f) && (tolerance.value < 60.0f)))
 			{
 				//CATCH
 				combos.output_queue.Enqueue("catch");
