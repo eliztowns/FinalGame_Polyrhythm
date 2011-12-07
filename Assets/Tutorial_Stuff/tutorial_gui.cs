@@ -28,6 +28,8 @@ public class tutorial_gui : MonoBehaviour {
 	private combo_master combos;
 	private tutorial_script t_script;
 	
+	public GUISkin myskin;
+	
 	
 	void OnGUI(){
 		
@@ -51,7 +53,7 @@ public class tutorial_gui : MonoBehaviour {
 		
 		
 		if(cur_combo == "blue" && tutorial_cooldown > 0){
-			GUI.Label(new Rect(Screen.width/2, Screen.height/2, 300, 150), "This is a blue combo:");
+			GUI.Label(new Rect(Screen.width/2 - 150, Screen.height-100, 500, 300), "This is a blue combo:", myskin.label);
 			int temp_time = (int)tutorial_cooldown;
 			if(tutorial_cooldown - (float)temp_time < 0.5f){
 			int lit = -1;
@@ -120,7 +122,7 @@ public class tutorial_gui : MonoBehaviour {
 		
 		gap = Screen.width / 25.0f;
 		ratio = Screen.width / (5.0f * redpad.width);
-		icon_dim = redpad.width;
+		icon_dim = redpad.width * ratio;
 		Debug.Log(redpad.width);
 		
 		GameObject options_temp = GameObject.Find("GameOptions");
