@@ -8,6 +8,7 @@ public class redPaint : MonoBehaviour {
 	private combo_master combos;
 	public float wait = 300f;
 	public float i = 0f;
+	public GameObject orbiter;
 
 	// Use this for initialization
 	void Start () {
@@ -46,6 +47,11 @@ public class redPaint : MonoBehaviour {
 				print("PLEASE");
 				Destroy(gameObject);
 				print("WORK");
+				
+				//create orbiter
+				GameObject o;
+				o=(GameObject)Instantiate(orbiter,thePlayer.transform.position,thePlayer.transform.rotation);
+				o.transform.parent=thePlayer.transform;
 			}
 		}
 		else if((thePlayer.color == "red") && ((thePlayer.transform.position.z > 0) && ((thePlayer.transform.position.z -1) > 0) && (transform.position.z > 0)))
@@ -55,6 +61,11 @@ public class redPaint : MonoBehaviour {
 				//CATCH
 				combos.output_queue.Enqueue("catch");
 				Destroy(gameObject);
+				
+				//create orbiter
+				GameObject o;
+				o=(GameObject)Instantiate(orbiter,thePlayer.transform.position,thePlayer.transform.rotation);
+				o.transform.parent=thePlayer.transform;
 			}
 		}
 		else if((thePlayer.color == "red") && ((thePlayer.transform.position.z < 0) && (transform.position.z < 0)))
@@ -64,6 +75,11 @@ public class redPaint : MonoBehaviour {
 				//CATCH
 				combos.output_queue.Enqueue("catch");
 				Destroy(gameObject);
+				
+				//create orbiter
+				GameObject o;
+				o=(GameObject)Instantiate(orbiter,thePlayer.transform.position,thePlayer.transform.rotation);
+				o.transform.parent=thePlayer.transform;
 			}
 		}
 
