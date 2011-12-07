@@ -8,6 +8,7 @@ public class bluePaint : MonoBehaviour {
 	private combo_master combos;
 	public float wait = 30f;
 	public float i = 0f;
+	public GameObject orbiter;
 
 	// Use this for initialization
 	void Start () {
@@ -45,6 +46,11 @@ public class bluePaint : MonoBehaviour {
 				print("PLEASEB");
 				Destroy(gameObject);
 				print("WORKB");
+				
+				//create orbiter
+				GameObject o;
+				o=(GameObject)Instantiate(orbiter,thePlayer.transform.position,thePlayer.transform.rotation);
+				o.transform.parent=thePlayer.transform;
 			}
 		}
 		

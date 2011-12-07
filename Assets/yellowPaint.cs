@@ -8,6 +8,7 @@ public class yellowPaint : MonoBehaviour {
 	private combo_master combos;
 	public float wait = 30f;
 	public float i = 0f;
+	public GameObject orbiter;
 
 	// Use this for initialization
 	void Start () {
@@ -45,9 +46,10 @@ public class yellowPaint : MonoBehaviour {
 				combos.output_queue.Enqueue("catch");
 				Destroy(gameObject);
 				//make orbiter
-				print("go");
-				GameObject o = Resources.Load("yellowOrbiter")as GameObject;
-				o.transform.parent = thePlayer.transform;
+				//print("go");
+				GameObject o;
+				o=(GameObject)Instantiate(orbiter,thePlayer.transform.position,thePlayer.transform.rotation);
+				o.transform.parent=thePlayer.transform;
 			}
 		}
 	}
