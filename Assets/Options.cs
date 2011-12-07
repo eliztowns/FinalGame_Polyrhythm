@@ -7,6 +7,8 @@ public class Options : MonoBehaviour {
     public Texture2D easyGameTexture;
     public Texture2D backTexture;
     public Texture2D sparkleTexture;
+    public Texture2D menuBar;
+    public Texture2D titleBar;
     
     public float gap_from_top_ratio;
     public float outer_ratio_gap;
@@ -66,6 +68,9 @@ public class Options : MonoBehaviour {
             
         if (GUI.Button (new Rect (gap * 4 + icon_dim * 3, Screen.height * gap_from_top_ratio + icon_dim * outer_ratio_gap, icon_dim, icon_dim), backTexture, ""))
             BackButton();
+            
+        GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height), menuBar);
+        GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height), titleBar);
     }
     
     void HardButton() {
