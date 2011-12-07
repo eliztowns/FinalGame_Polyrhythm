@@ -214,7 +214,15 @@ public class player_class : MonoBehaviour {
 		
 		remaining_tween_z = 0;
 		score = 0;
-		penalties = 5;
+        
+        GameObject temp_Thing = GameObject.Find("GameOptions");
+        GameOptions the_options = temp_Thing.GetComponent<GameOptions>();
+        if(the_options.difficulty == "easy")
+            penalties = 10;
+        if(the_options.difficulty == "medium")
+            penalties = 7;
+        if(the_options.difficulty == "hard")
+            penalties = 5;
 	}
 	
 	
