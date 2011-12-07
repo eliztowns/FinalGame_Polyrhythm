@@ -18,6 +18,8 @@ public class tutorial_gui : MonoBehaviour {
 	private float ratio;
 	private float icon_dim;
 	
+	//private GUIStyle beth_style;
+	
 	public string cur_combo;
 	public float tutorial_cooldown;
 	private float tutorial_complete;
@@ -112,7 +114,9 @@ public class tutorial_gui : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		tutorial_cooldown = 7f;
+		//beth_style.fontSize = 32;
+		//beth_style.font = 
+		
 		
 		gap = Screen.width / 25.0f;
 		ratio = Screen.width / (5.0f * redpad.width);
@@ -126,6 +130,8 @@ public class tutorial_gui : MonoBehaviour {
 		combos = bino_temp.GetComponent<combo_master>();
 		
 		cur_combo = "blue";
+		
+		tutorial_cooldown = 7f;
 	
 	}
 	
