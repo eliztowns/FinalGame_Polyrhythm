@@ -125,7 +125,7 @@ public class tutorial_script : MonoBehaviour {
 				drum_cooldown[1] = 0.2f;
 			}
 			if(Input.GetButtonDown("foot_pedal") && complete)
-			   Application.LoadLevel("ultimate_mainmenu_chucknorris");
+			   Application.LoadLevel("ultimate_leftright_chucknorris");
 			   
 			
 			foreach(string key in input){

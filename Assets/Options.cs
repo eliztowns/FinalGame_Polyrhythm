@@ -72,21 +72,21 @@ public class Options : MonoBehaviour {
         GameObject temp_Thing = GameObject.Find("GameOptions");
         gameOptions = temp_Thing.GetComponent<GameOptions>();
         gameOptions.difficulty = "hard";
-		Application.LoadLevel("ultimate_tutorial_chucknorris");
+		Application.LoadLevel("ultimate_paintdrop_chucknorris");
     }
     
     void MediumButton() {
         GameObject temp_Thing = GameObject.Find("GameOptions");
         gameOptions = temp_Thing.GetComponent<GameOptions>();
         gameOptions.difficulty = "medium";
-		Application.LoadLevel("ultimate_tutorial_chucknorris");
+		Application.LoadLevel("ultimate_paintdrop_chucknorris");
     }
     
     void EasyButton() {
         GameObject temp_Thing = GameObject.Find("GameOptions");
         gameOptions = temp_Thing.GetComponent<GameOptions>();
         gameOptions.difficulty = "easy";
-		Application.LoadLevel("ultimate_tutorial_chucknorris");
+		Application.LoadLevel("ultimate_paintdrop_chucknorris");
     }
     
     void BackButton() {
