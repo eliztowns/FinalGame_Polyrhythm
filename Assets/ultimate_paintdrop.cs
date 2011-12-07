@@ -10,7 +10,9 @@ public class ultimate_paintdrop : MonoBehaviour {
 	}
 	
 	void OnGUI(){
-		GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height), paintdrop_thing);
+		//1024 768	
+		
+		GUI.DrawTexture(new Rect(0,0, Screen.width, Screen.height), paintdrop_thing);
 
 		
 	}
