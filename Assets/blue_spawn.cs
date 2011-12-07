@@ -24,47 +24,26 @@ public class blue_spawn : MonoBehaviour {
 			if(x%2 == 0)
 			{
 				spawnPlace = new Vector3(5.32399f, 1f, -0.25f);
-				Vector3 pos1 = new Vector3(5.32399f, 1f, -0.25f);
-				
-				transform.animation.Play("spawningworks");
-			
-				bluePaint bp = (bluePaint)Instantiate(bpPrefab);
-				bp.transform.position = spawnPlace;
-				
-				bp.transform.animation.Play("spawningworks");
-			
-				bp.transform.parent = transform;
-				///bp.animation.Play("falling");
-				//bp.animation["falling"].wrapMode = WrapMode.Loop;
 			}
 			else if(x%3 == 0)
 			{
 				spawnPlace = new Vector3(5.32399f, 1f, 0f);
-				Vector3 pos2 = new Vector3(5.32399f, 1f, 0f);
-			
-				bluePaint bp = (bluePaint)Instantiate(bpPrefab);
-				bp.transform.position = spawnPlace;
-				
-				bp.transform.animation.Play("spawningworks");
-			
-				bp.transform.parent = transform;
-				//bp.animation.Play("falling");
-				//bp.animation["falling"].wrapMode = WrapMode.Loop;
 			}
 			else if(x%5 == 0)
 			{
 				spawnPlace = new Vector3(5.32399f, 1f, 0.25f);
-				Vector3 pos3 = new Vector3(5.32399f, 1f, 0.25f);
-			
-				bluePaint bp = (bluePaint)Instantiate(bpPrefab);
-				bp.transform.position = spawnPlace;
-				
-				bp.transform.animation.Play("spawningworks");
-			
-				bp.transform.parent = transform;
-				//bp.animation.Play("falling");
-				//bp.animation["falling"].wrapMode = WrapMode.Loop;
 			}
+			bluePaint bp = (bluePaint)Instantiate(bpPrefab);
+			bp.transform.position = spawnPlace;
+			
+			bp.transform.animation.Play("spawningworks");
+			
+			bp.transform.animation.wrapMode = WrapMode.Once;
+			bp.transform.animation["fallingworks"].wrapMode = WrapMode.Loop;
+			
+			bp.transform.animation.CrossFadeQueued("fallingworks");
+			bp.transform.parent = transform;
+			
 		}
 		
 	}
