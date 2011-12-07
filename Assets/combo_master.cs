@@ -16,14 +16,9 @@ public class combo_master : MonoBehaviour {
 	private InputManager input;
     private GameOptions the_options;
 	
-	private List<string> red_combo = new List<string>();
-	private List<string> blue_combo = new List<string>();
-	private List<string> yellow_combo = new List<string>();
-    
-    public GameObject blue_particles;
-    public GameObject red_particles;
-    public GameObject green_particles;
-    public GameObject yellow_particles;
+	public List<string> red_combo = new List<string>();
+	public List<string> blue_combo = new List<string>();
+	public List<string> yellow_combo = new List<string>();
 	
 	public static combo_master get{
 		get{
@@ -51,25 +46,13 @@ public class combo_master : MonoBehaviour {
 		
 		while(InputManager.get.HasKeys()){
 			key = InputManager.get.GetNextKey();
-			if(key.name == "green"){
+			if(key.name == "green" || key.name == "red"){ //|| key.name == "foot_pedal"){
 				output_queue.Enqueue(key.name);
-                green_particles.particleEmitter.Emit();
-                
-			} else if(key.name == "red"){
-				output_queue.Enqueue(key.name);
-                red_particles.particleEmitter.Emit();
-                
-			} else if(key.name == "blue"){
+			}
+			else if(key.name == "blue" || key.name == "yellow"){
 				combo_interpreter.Add(key);
 				seen += key.name;
-                blue_particles.particleEmitter.Emit();
-                
-			} else if(key.name == "yellow"){
-				combo_interpreter.Add(key);
-				seen += key.name;
-                yellow_particles.particleEmitter.Emit();
-            
-            }
+			}
 		}
 	}
 	

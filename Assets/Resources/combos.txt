@@ -1,14 +1,14 @@
-hard
+easy
     R: bbbcbbbc
     Y: ccbyc
     B: yyyyyyyy
-
+    
 medium
     R: bcbcbc
     Y: cccc
     B: yyyyyy
     
-easy
+hard
     R: byb
     Y: ccc
     B: yyy
