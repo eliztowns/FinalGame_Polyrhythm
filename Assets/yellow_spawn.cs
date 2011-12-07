@@ -8,15 +8,11 @@ public class yellow_spawn : MonoBehaviour {
 	public Vector3 spawnPlace = new Vector3 (5.32399f, 1f, -0.025f);
 	public yellowPaint ypPrefab;
 	public float x = 0;
-	
 
 	/* Use this for initialization
 	void Start () {
 		
 	}*/
-	void Start(){
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -38,7 +34,6 @@ public class yellow_spawn : MonoBehaviour {
 				spawnPlace = new Vector3(5.32399f, 1f, 0.25f);
 			}
 				
-			
 			yellowPaint yp = (yellowPaint)Instantiate(ypPrefab);
 			yp.transform.position = spawnPlace;
 			
